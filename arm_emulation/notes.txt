@@ -1,0 +1,3 @@
+objcopy is used to translate from ELF (used when an OS is around) to pure binary
+qemu-system-arm -echr 0x14 -M versatilepb -m 128M -nographic -kernel output.bin
+-echr is used to substitute the normal CTRL-a with ctrl-t(0x14)
