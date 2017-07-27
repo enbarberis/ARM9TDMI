@@ -11,6 +11,7 @@ The project was developed by:
 ## Architecture
 A first step of reverse engineering to extract inner details of the architecture was done by reading documentation provided by ARM. All the obtained informations are reported in these documents to help future readers:
 * `doc/datapath.eps` : an high level datapath view of the processor. This diagram helps to visualize the main blocks that compose the processor.
+![ARM9TDMI datapath](https://github.com/enbarberis/ARM9TDMI/raw/master/doc/datapath.jpg)
 * `doc/ARM9TDMI_notes.pdf` : a document that explain for each instruction encoding, timing and implementation details 
 ## Implementation
 
