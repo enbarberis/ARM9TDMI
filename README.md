@@ -6,7 +6,7 @@ The project was developed by:
 * Barberis Enrico
 * Canessa Emanuele
 * Cipolletta Antonio
-* Circa Alessandro
+* Ciraci Alessandro
 ## What was done
 ### Architecture
 A first step of reverse engineering to extract inner details of the architecture was done by reading documentation provided by ARM. All the obtained informations are reported in these documents to help future readers:
