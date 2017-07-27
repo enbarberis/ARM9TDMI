@@ -12,7 +12,8 @@ The project was developed by:
 A first step of reverse engineering to extract inner details of the architecture was done by reading documentation provided by ARM. All the obtained informations are reported in these documents to help future readers:
 * `doc/datapath.eps` : an high level datapath view of the processor. This diagram helps to visualize the main blocks that compose the processor.
 ![ARM9TDMI datapath](https://github.com/enbarberis/ARM9TDMI/raw/master/doc/datapath.jpg)
-* `doc/ARM9TDMI_notes.pdf` : a document that explain for each instruction encoding, timing and implementation details. This document contains all the information obtained during the architecture definition of the processor.
+* `doc/ARM9TDMI_datapath_notes.pdf` : this document explain some architecture details of the processor and gives specificaiton about the main processor modules.
+* `doc/ARM9TDMI_architecure_notes.pdf` : a document that explain for each instruction encoding, timing and implementation details. This document contains all the information obtained during the architecture definition of the processor.
 * `doc/references/` : collection of useful references found on the web. Also the book "ARM System-on-Chip Architecture" by Steve Furber was used.
 
 All the architectural decisions were taken by looking at the cycle count of each instruction reported in the manual in order to obtain a processor with the same timing capabilities of the ARM9TDMI.
@@ -26,7 +27,7 @@ After the definition of the architecture a VHDL description of the processor was
 * `memory` : contains simple memory models description for the instruction and data memory. Notice that are used only for simulation purposes. The `utils` folder contains some images and script to convert binary files in text file that can be read by a VHDL simulator.
 * `testbench` contains some testbench of sub components and the processor itself.
 ### Testing
-A simple testbench of the processor is available in the folder `src/testbench`. In order to feed easily instruction to the processor a makefile was created to generate a binary file starting from .c or .S sources.
+A simple testbench of the processor is available in the folder `src/testbench`. In order to feed easily instruction to the processor a makefile was created to generate a binary file starting from .c or .S sources. All these utilities are available in the folder `arm_emulation`.
 
 
 ## What’s left to do
