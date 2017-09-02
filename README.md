@@ -33,9 +33,9 @@ In order to test the correctness of the programs that will be used to functional
 #### Some tips:
 * A very simple makefile has been provided. It includes also the directives to translate the executable file from the ELF file to a pure binary.
 * A script bash to create the binary flash file needed
-* ![VERY GOOD REFERENCE](http://www.bravegnu.org/gnu-eprog/index.html#intro)
+* [VERY GOOD REFERENCE](http://www.bravegnu.org/gnu-eprog/index.html#intro)
 #### What do you need?
-* ![GCC toolchain for arm system](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
+* [GCC toolchain for arm system](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
 * QEMU and in particular 'qemu-system-arm'
 
 ### Testing
