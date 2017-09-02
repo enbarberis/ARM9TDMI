@@ -1,11 +1,12 @@
 @ MOV R8, R8 is used as a NOP
   .data 
 val1: .4byte 10
-val2: .byte 2
+val2: .4byte 2
 val3: .space 4
-  .global entry_point
+  .global forwarding_main
   .text
-entry_point:
+forwarding_main:
+  mov r10, r14        @ In order to make nested function call
   bl RaW
   bl forwarding_MEM
   bl forwarding_MEM_2
@@ -22,6 +23,8 @@ entry_point:
   bl forwarding_LDR_5
   bl forwarding_STR
   bl forwarding_STR_2
+  mov r14, r10
+  mov pc, r14
 stop:
   b stop
 

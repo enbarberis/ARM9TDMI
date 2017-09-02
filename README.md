@@ -26,8 +26,21 @@ After the definition of the architecture a VHDL description of the processor was
 * `execute` : contains all the datapath blocks that performs the processor arithmetic or logical operations.
 * `memory` : contains simple memory models description for the instruction and data memory. Notice that are used only for simulation purposes. The `utils` folder contains some images and script to convert binary files in text file that can be read by a VHDL simulator.
 * `testbench` contains some testbench of sub components and the processor itself.
+
+### Emulation system
+At a certain point of the development process crop out the need for a test suite of programs written in assembly. 
+In order to test the correctness of the programs that will be used to functionaly verify the processor an emulation system based on QEMU has been setup. All the files you will need to emulate the arm system are available in the folder `arm_emulation`. 
+#### Some tips:
+* A very simple makefile has been provided. It includes also the directives to translate the executable file from the ELF file to a pure binary.
+* A script bash to create the binary flash file needed
+* ![VERY GOOD REFERENCE](http://www.bravegnu.org/gnu-eprog/index.html#intro)
+#### What do you need?
+* ![GCC toolchain for arm system](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
+* QEMU and in particular 'qemu-system-arm'
+
 ### Testing
 A simple testbench of the processor is available in the folder `src/testbench`. In order to feed easily instruction to the processor a makefile was created to generate a binary file starting from .c or .S sources. All these utilities are available in the folder `arm_emulation`.
+
 
 
 ## What’s left to do

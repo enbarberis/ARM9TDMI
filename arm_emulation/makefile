@@ -1,5 +1,5 @@
 TARGET_ARCHITECTURE=arm9
-LINKER_SCRIPT=linker.ld
+LINKER_SCRIPT=linker_emulation.ld
 
 AS=arm-none-eabi-as
 ASFLAGS= -mcpu=${TARGET_ARCHITECTURE} -g -o
@@ -10,11 +10,20 @@ LDFLAGS= -T ${LINKER_SCRIPT} -o
 OBJCOPY= arm-none-eabi-objcopy 
 OBJCOPYFLAGS= -O
 GDB=arm-elf-gdb
- 
-all:link 
+
+all:link
+
+mem_init.o: src/mem_init.S
+	${AS} ${ASFLAGS} obj/mem_init.o src/mem_init.S
+
+entry.o: src/entry.S
+	${AS} ${ASFLAGS} obj/entry.o src/entry.S
 
 fibo.o: src/fibo.S
 	${AS} ${ASFLAGS} obj/fibo.o src/fibo.S
+
+forwarding.o: src/forwarding.S
+	${AS} ${ASFLAGS} obj/forwarding.o src/forwarding.S
 
 sort.o: src/sort.S
 	${AS} ${ASFLAGS} obj/sort.o src/sort.S
@@ -22,20 +31,17 @@ sort.o: src/sort.S
 startup.o: src/startup.S
 	${AS} ${ASFLAGS} obj/startup.o src/startup.S
 			 
-forwarding.o: src/forwarding.S
-	${AS} ${ASFLAGS} obj/forwarding.o src/forwarding.S
+sum_vector.o: src/sum_vector.S
+	${AS} ${ASFLAGS} obj/sum_vector.o src/sum_vector.S
 
-data_transfer.o: src/data_transfer.S
-	${AS} ${ASFLAGS} obj/data_transfer.o src/data_transfer.S
-
-link: fibo.o sort.o startup.o data_transfer.o forwarding.o 
-	${LD} ${LDFLAGS} bin/exec.elf obj/fibo.o obj/sort.o obj/startup.o obj/forwarding.o obj/data_transfer.o 
+link: mem_init.o entry.o fibo.o forwarding.o sort.o startup.o sum_vector.o 
+	${LD} ${LDFLAGS} bin/exec.elf obj/*.o
 
 install: link
 	${OBJCOPY} ${OBJCOPYFLAGS} binary bin/exec.elf bin/exec.bin
-	
-debug: exec
-	qemu-system-arm -M versatilepb -m 128M -nographic -serial /dev/null -kernel exec -s -S
+	./create_flash.sh ./bin/exec.bin	
+debug: 
+	qemu-system-arm -echr 0x14 -M connex -m 128M -nographic -pflash flash.bin -s -S
 			 
 gdb: exec
 	${GDB} exec

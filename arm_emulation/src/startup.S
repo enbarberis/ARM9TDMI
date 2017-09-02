@@ -9,10 +9,13 @@ _Reset:
   B FIQ_Handler /* FIQ handler */
 
 Reset_Handler:
-  B entry_point
-  LDR sp, =stack_top /*set up env for C function */
-  str sp, [sp]
-  BL fibo_main
+  bl mem_init
+  mov r0, #208  /*  Set USER mode but with
+                    IF and FF set in order to
+                    disable
+                */
+  msr CPSR_c, R0
+  b usr_entry_point
   B .
 Undefined: /* do nothing */
   B .
