@@ -41,6 +41,5 @@ In order to test the correctness of the programs that will be used to functional
 ### Testing
 A simple testbench of the processor is available in the folder `src/testbench`. In order to feed easily instruction to the processor a makefile was created to generate a binary file starting from .c or .S sources. All these utilities are available in the folder `arm_emulation`.
 
-
-
 ## What’s left to do
+The entire processor architecture is defined and instantiated, however the file `src/decode/decode_table.vhd` is not complete. Only the data processing operations and single/multiple load/store are defined. In order to have a full compliant processor all the remaining instruction must be defined. It has to been noticed that the control unit FSM is also already defined so the remaining work is merely an OPCODE check and a control word generation.
