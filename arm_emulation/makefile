@@ -1,12 +1,12 @@
 TARGET_ARCHITECTURE=arm9
-LINKER_SCRIPT=linker_emulation.ld
+LINKER_SCRIPT=linker_rtl_simulation.ld
 
 AS=arm-none-eabi-as
 ASFLAGS= -mcpu=${TARGET_ARCHITECTURE} -g -o
 CC=arm-none-eabi-gcc
 CCFLAGS= -g -mcpu=${TARGET_ARCHITECTURE} -c -o 
 LD=arm-none-eabi-ld
-LDFLAGS= -o
+LDFLAGS= -T ${LINKER_SCRIPT} -o
 OBJCOPY= arm-none-eabi-objcopy 
 OBJCOPYFLAGS= -O
 GDB=arm-elf-gdb
@@ -20,8 +20,8 @@ link: main.o
 	${LD} ${LDFLAGS} bin/main.elf obj/main.o
 
 install: link
-	${OBJCOPY} ${OBJCOPYFLAGS} binary bin/exec.elf bin/exec.bin
-	./create_flash.sh ./bin/exec.bin	
+	${OBJCOPY} ${OBJCOPYFLAGS} binary bin/main.elf bin/main.bin
+	./create_flash.sh ./bin/main.bin	
 debug: 
 	qemu-system-arm -echr 0x14 -M connex -m 128M -nographic -pflash flash.bin -s -S
 			 

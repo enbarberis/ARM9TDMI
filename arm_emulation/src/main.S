@@ -1,5 +1,5 @@
-.global main
-.text             @ Directive to say that it has to be compiled in code section
+.global _Reset
+_Reset:
 mov sp, #65536
 stop:
   b stop          @ Infinite loop to stop execution 
