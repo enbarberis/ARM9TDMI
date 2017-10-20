@@ -364,8 +364,7 @@ begin
           dec_en_rdB                <=  '0';
           dec_imm_inst              <=  '1';
           dec_immediate_value       <=  std_logic_vector(resize(unsigned(instruction(IMMED_8_END downto IMMED_8_SRT)),dec_immediate_value'length));
-          dec_shift_amount          <=  std_logic_vector(resize(unsigned(instruction(ROT_IMM_END downto ROT_IMM_SRT)),dec_shift_amount'length));
-          dec_shift_amount          <=  dec_shift_amount(dec_shift_amount'length - 2 downto 1) & '0';
+          dec_shift_amount          <=  std_logic_vector(resize(unsigned(instruction(ROT_IMM_END downto ROT_IMM_SRT) & '0'),dec_shift_amount'length));
           dec_shifter_opcode        <=  ROR_OP;
           dec_src_shift_amnt        <=  SHIFT_AMNT_FROM_IMM; -- IMMEDIATE_SHIFT
           dec_shift_imm             <=  '0';
