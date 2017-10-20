@@ -1,5 +1,6 @@
 .global _Reset
 _Reset:
-mov sp, #65536
+mov r0, #1
+mov sp, r0, lsl #8
 stop:
   b stop          @ Infinite loop to stop execution 
