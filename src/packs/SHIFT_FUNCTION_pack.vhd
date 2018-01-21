@@ -23,6 +23,8 @@ package SHIFT_FUNCTION_pack is
                                    SHIFT    : SHIFT_BUS_t)
                                    return     DATA_BUS_t;
 
+
+
 end SHIFT_FUNCTION_pack;
 
 package body SHIFT_FUNCTION_pack is
@@ -31,11 +33,12 @@ package body SHIFT_FUNCTION_pack is
   function Logical_Shift_Left (DATA_IN : DATA_BUS_t; SHIFT : SHIFT_BUS_t)
   return DATA_BUS_t is
 
-    variable nSHIFT   : natural     := to_integer(unsigned(SHIFT));
+    variable nSHIFT   : integer range 0 to 32;
     variable DATA_OUT : DATA_BUS_t  := DATA_IN;
 
   begin
 
+    nSHIFT   := to_integer(unsigned(SHIFT));
     Shift_Left : for i in 1 to nSHIFT loop
       DATA_OUT := DATA_OUT(30 downto 0) & '0';
     end loop;
@@ -48,11 +51,12 @@ package body SHIFT_FUNCTION_pack is
   function Logical_Shift_Right (DATA_IN : DATA_BUS_t; SHIFT : SHIFT_BUS_t)
   return DATA_BUS_t is
 
-    variable nSHIFT   : natural     := to_integer(unsigned(SHIFT));
+    variable nSHIFT   : integer range 0 to 32;
     variable DATA_OUT : DATA_BUS_t  := DATA_IN;
 
   begin
 
+    nSHIFT   := to_integer(unsigned(SHIFT));
     Shift_Right : for i in 1 to nSHIFT loop
       DATA_OUT := '0' & DATA_OUT(31 downto 1);
     end loop;
@@ -65,12 +69,13 @@ package body SHIFT_FUNCTION_pack is
   function Arithmetic_Shift_Right (DATA_IN : DATA_BUS_t; SHIFT : SHIFT_BUS_t)
   return DATA_BUS_t is
 
-    variable nSHIFT   : natural     := to_integer(unsigned(SHIFT));
+    variable nSHIFT   : integer range 0 to 32;
     variable DATA_OUT : DATA_BUS_t  := DATA_IN;
 
   begin
 
-    Shift_Right : for i in 1 to nSHIFT loop
+    nSHIFT   := to_integer(unsigned(SHIFT));
+    A_Shift_Right : for i in 1 to nSHIFT loop
       DATA_OUT := DATA_OUT(31) & DATA_OUT(31 downto 1);
     end loop;
 
@@ -82,11 +87,12 @@ package body SHIFT_FUNCTION_pack is
   function Rotate_Right (DATA_IN : DATA_BUS_t; SHIFT : SHIFT_BUS_t)
   return DATA_BUS_t is
 
-    variable nSHIFT   : natural     := to_integer(unsigned(SHIFT)) mod 32;
+    variable nSHIFT   : integer range 0 to 32;
     variable DATA_OUT : DATA_BUS_t  := DATA_IN;
 
   begin
 
+    nSHIFT   := to_integer(unsigned(SHIFT)) mod 32;
     Rotate : for i in 1 to nSHIFT loop
       DATA_OUT := DATA_OUT(0) & DATA_OUT(31 downto 1);
     end loop;
@@ -94,5 +100,6 @@ package body SHIFT_FUNCTION_pack is
     return DATA_OUT;
 
   end function Rotate_Right;
+
 
 end SHIFT_FUNCTION_pack;

@@ -766,12 +766,12 @@ begin
   dec_addr_rdA                <=  dec_addr_rdA_t                    ;
 
 
-  dec_en_rdA                  <=  ( dec_en_rdA_t and not(stall) )
+  dec_en_rdA                  <=  dec_en_rdA_t --( dec_en_rdA_t and not(stall) )
                                   when who_is_in_charge = '0' else
                                   dec_en_rdA_f                      ;
   dec_addr_rdB                <=  dec_addr_rdB_t                    ;
 
-  dec_en_rdB                  <=  ( dec_en_rdB_t and not(stall) )
+  dec_en_rdB                  <=  dec_en_rdB_t --( dec_en_rdB_t and not(stall) )
                                   when who_is_in_charge = '0' else
                                   dec_en_rdB_f                      ;
 

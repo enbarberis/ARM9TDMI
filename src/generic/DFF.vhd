@@ -21,8 +21,8 @@ begin
       int_mem <= '0';
     elsif ( clk = '0' and clk'event ) then
       int_mem <= D;
-    else
-      int_mem <= int_mem;
+    --else
+      --int_mem <= int_mem;
     end if;
   end process;
 

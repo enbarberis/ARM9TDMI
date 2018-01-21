@@ -26,8 +26,8 @@ begin
       S <= (others => '0');
     elsif (CLK = '0' and CLK'event) then
       S <= D;
-    else
-      S <= S;
+    --else
+      --S <= S;
     end if;
 
   end process;
