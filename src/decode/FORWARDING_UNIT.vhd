@@ -53,7 +53,9 @@ begin
                   IMM_INST,
                   EN_rdPSR,
                   CPSR_nSPSR,
-                  MDATA_DIM)
+                  MDATA_DIM,
+                  DEC_EN_rdA,
+                  DEC_EN_rdB)
   begin
 
     STALL <= '0';

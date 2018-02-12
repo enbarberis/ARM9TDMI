@@ -85,7 +85,8 @@ architecture STR of ALU is
 begin
 
   --L_nA, A_INVERT, B_INVERT, CIN, OP_SELECT
-  opcode_to_alu_signal: process (OPCODE, C_FLAG_in)
+  --opcode_to_alu_signal: process (OPCODE, C_FLAG_in) : C_FLAG_in is not used inside the process
+  opcode_to_alu_signal: process (OPCODE)
   begin
     A_PASS_s <= '0';
     B_PASS_s <= '0';

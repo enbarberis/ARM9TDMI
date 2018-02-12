@@ -65,7 +65,7 @@ begin
   IABE <= '1'; -- The Instruction Address Bus is always enabled
 
 
-  REQUEST_p : process (IA,InTRANS,InM)
+  REQUEST_p : process (IA,InTRANS,InM,InMREQ,INSTRUCTION_MEMORY)
     variable instruction_address : integer;
   begin
     if InMREQ = '0' then

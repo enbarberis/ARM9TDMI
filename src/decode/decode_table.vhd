@@ -83,7 +83,10 @@ end entity ;
 architecture BHV of decode_table is
 begin
 
-  COMB_LOGIC: process(nRst,data_abort,irq,fiq,instruction,zero_flag)
+  COMB_LOGIC: process(nRst,data_abort,irq,fiq,instruction,zero_flag,
+                      prefetch_abort,number_of_registers,
+                      number_of_registers_dec,next_reg_addr
+                      )
   begin
     if ( data_abort = '1' ) then
       int_op_nxt_reg_logic          <=  '0';
