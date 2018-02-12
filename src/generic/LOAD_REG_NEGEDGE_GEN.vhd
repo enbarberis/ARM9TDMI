@@ -31,8 +31,8 @@ begin
       else
         S <= S;
       end if;
-    else
-      S <= S;
+    --else
+      --S <= S;
     end if;
 
   end process;

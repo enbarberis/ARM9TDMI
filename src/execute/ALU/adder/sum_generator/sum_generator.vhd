@@ -69,10 +69,11 @@ begin
     FIRST_BLOCK: if i = 0 generate
       CS_0:   RCA_GENERIC
               generic map (N => BLOCK_SIZE)
-              port map (A => A(BLOCK_SIZE-1 downto 0),
-                        B => B(BLOCK_SIZE-1 downto 0),
-                        Ci => Ci(0),
-                        S => S(BLOCK_SIZE-1 downto 0)
+              port map (A   => A(BLOCK_SIZE-1 downto 0),
+                        B   => B(BLOCK_SIZE-1 downto 0),
+                        Ci  => Ci(0),
+                        S   => S(BLOCK_SIZE-1 downto 0),
+                        Co  => open
                       );
     end generate FIRST_BLOCK;
 

@@ -25,10 +25,12 @@ begin
 
     if (nRST = '0') then
       S <= (others => '0');
-    elsif (CLK = '0' and CLK'event and EN = '1') then
-      S <= D;
-    else
-      S <= S;
+    elsif (CLK = '0' and CLK'event)  then
+    	if (EN = '1') then
+      		S <= D;
+    	else
+      		S <= S;
+    	end if;
     end if;
 
   end process;

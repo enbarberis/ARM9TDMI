@@ -47,11 +47,11 @@ begin
 
   RCA_0:  RCA_GENERIC
           generic map (N => N)
-          port map (A=>A, B=>B, Ci=>'0', S=>sum0);
+          port map (A=>A, B=>B, Ci=>'0', S=>sum0, Co=>open);
 
   RCA_1:  RCA_GENERIC
           generic map (N => N)
-          port map (A=>A, B=>B, Ci=>'1', S=>sum1);
+          port map (A=>A, B=>B, Ci=>'1', S=>sum1, Co=>open);
 
   MUX:    MUX21_GENERIC
           generic map (N => N)
