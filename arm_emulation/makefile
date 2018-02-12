@@ -16,8 +16,11 @@ all:link
 main.o: src/main.S
 	${AS} ${ASFLAGS} obj/main.o src/main.S
 
-link: main.o 
-	${LD} ${LDFLAGS} bin/main.elf obj/main.o
+forwarding.o: src/forwarding.S
+	${AS} ${ASFLAGS} obj/forwarding.o src/forwarding.S
+
+link: main.o forwarding.o
+	${LD} ${LDFLAGS} bin/main.elf obj/main.o obj/forwarding.o
 
 install: link
 	${OBJCOPY} ${OBJCOPYFLAGS} binary bin/main.elf bin/main.bin

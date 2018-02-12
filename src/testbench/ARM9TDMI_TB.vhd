@@ -59,7 +59,13 @@ architecture BHE of ARM9TDMI_TB is
   );
   end component ARM9TDMI;
 
-
+  component fetch_disassembly is
+  port (
+    IR          : in  std_logic_vector ( 31 downto 0 ); 
+    FETCH_EN    : in  std_logic;
+    CLK         : in  std_logic
+  );
+  end component fetch_disassembly;
 
   component INSTRUCTION_MEMORY is
   generic (
@@ -152,6 +158,8 @@ architecture BHE of ARM9TDMI_TB is
   signal UNIEN_s      :  std_logic;
 
 
+  signal fetch_en_s   :  std_logic;
+
 
 begin
 
@@ -217,6 +225,17 @@ begin
       IABE      =>     IABE_s,      -- Instruction Address Bus Enable.
       IABORT    =>     IABORT_s    -- Instruction Abort. Set to 1 when the requested instruction memory access is not allowed.
     );
+
+
+  fetch_en_s <= not(InMREQ_s);
+
+  FD: fetch_disassembly
+    port map(
+      CLK       =>      GCLK_s,
+      IR        =>      ID_s,
+      FETCH_EN  =>      fetch_en_s
+    );
+
 
 
   DM: DATA_MEMORY

@@ -81,8 +81,9 @@ vcom -check_synthesis  memory/INSTRUCTION_MEMORY.vhd
 
 vcom -check_synthesis  ARM9TDMI.vhd
 
-vcom -check_synthesis  testbench/ARM9TDMI_TB.vhd
-vcom -check_synthesis  testbench/DATA_MEMORY_TESTBENCH.vhd
-vcom -check_synthesis  testbench/INSTRUCTION_MEMORY_TESTBENCH.vhd
+vlog testbench/fetch_disassembly.sv
+vcom -check_synthesis testbench/ARM9TDMI_TB.vhd
+vcom -check_synthesis testbench/DATA_MEMORY_TESTBENCH.vhd
+vcom -check_synthesis testbench/INSTRUCTION_MEMORY_TESTBENCH.vhd
 
 
