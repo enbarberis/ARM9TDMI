@@ -81,6 +81,7 @@ vcom memory/INSTRUCTION_MEMORY.vhd
 
 vcom ARM9TDMI.vhd
 
+vlog testbench/fetch_disassembly.sv
 vcom testbench/ARM9TDMI_TB.vhd
 vcom testbench/DATA_MEMORY_TESTBENCH.vhd
 vcom testbench/INSTRUCTION_MEMORY_TESTBENCH.vhd

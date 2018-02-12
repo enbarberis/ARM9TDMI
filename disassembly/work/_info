@@ -1,0 +1,55 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/users/cipolletta/Documenti/ARM_total/ARM9TDMI/disassembly
+vfetch_disassembly
+DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+!s110 1518354072
+!i10b 1
+!s100 NQH:=8F]h:OANQN5OA[b83
+IZ8JbnI7T_=Z=899JiEfhI0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+!s105 fetch_disassembly_sv_unit
+S1
+R0
+w1518354068
+8fetch_disassembly.sv
+Ffetch_disassembly.sv
+L0 1
+Z2 OP;L;10.4a;61
+r1
+!s85 0
+31
+!s108 1518354072.000000
+!s107 fetch_disassembly.sv|
+!s90 -reportprogress|300|fetch_disassembly.sv|
+!s101 -O0
+!i113 1
+Z3 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+vfetch_disassembly_tb
+!s110 1518350413
+!i10b 1
+!s100 D^h8M5ZCd]:Yd`R_=VzgI3
+IA1X>iF86Fn@W:bo][hd6:3
+R1
+R0
+w1518350294
+8fetch_disassembly_tb.v
+Ffetch_disassembly_tb.v
+L0 4
+R2
+r1
+!s85 0
+31
+!s108 1518350413.000000
+!s107 fetch_disassembly_tb.v|
+!s90 -reportprogress|300|fetch_disassembly_tb.v|
+!s101 -O0
+!i113 1
+R3
